@@ -21,6 +21,7 @@ namespace ProjectSurvivor
                 {
 					Global.RestartData();
                     this.CloseSelf();
+                    Time.timeScale = 1;
                     SceneManager.LoadScene("SampleScene");
                 }
             }

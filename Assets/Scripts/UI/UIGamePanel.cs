@@ -20,7 +20,7 @@ namespace ProjectSurvivor
                 {
                     var currentSecondsInt = Mathf.FloorToInt(CurrentSeconds);
                     var seconds = currentSecondsInt % 60;
-                    var minutes = CurrentSeconds / 60;
+                    var minutes = currentSecondsInt / 60;
                     TimeText.text = "ʱ�䣺" + $"{minutes:00}:{seconds:00}";
                 }
 
@@ -70,11 +70,15 @@ namespace ProjectSurvivor
             }
             );
 
+            var enemyGenerator = FindObjectOfType<EnemyGenerator>();
+
             ActionKit.OnUpdate.Register(() =>
             {
                 Global.CurrentSeconds.Value += Time.deltaTime;
 
-                if(Global.CurrentSeconds.Value >= 60)
+                if(Global.CurrentSeconds.Value >= 45
+                     && enemyGenerator.LastWave
+                     && !FindObjectOfType<Enemy>(false))
                 {
                     UIKit.OpenPanel<UIGamePassPanel>();
                 }

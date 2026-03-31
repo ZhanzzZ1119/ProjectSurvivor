@@ -20,7 +20,8 @@ namespace ProjectSurvivor
 				{
                     Global.RestartData();
                     this.CloseSelf();
-					SceneManager.LoadScene("SampleScene");
+					Time.timeScale = 1;
+                    SceneManager.LoadScene("SampleScene");
 				}
 			}
 			).UnRegisterWhenGameObjectDestroyed(gameObject);

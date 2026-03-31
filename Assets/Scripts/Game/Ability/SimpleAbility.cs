@@ -5,7 +5,7 @@ namespace ProjectSurvivor
 {
     public partial class SimpleAbility : ViewController
     {
-        private float mCurrentSeconds = 0;
+        private float mCurrentGenerateSeconds = 0;
 
         void Start()
         {
@@ -13,11 +13,11 @@ namespace ProjectSurvivor
         }
         private void Update()
         {
-            mCurrentSeconds += Time.deltaTime;
+            mCurrentGenerateSeconds += Time.deltaTime;
 
-            if (mCurrentSeconds >= 1.5f)
+            if (mCurrentGenerateSeconds >= 1.5f)
             {
-                mCurrentSeconds = 0;
+                mCurrentGenerateSeconds = 0;
                 var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
                 foreach (var enemy in enemies)
                 {
