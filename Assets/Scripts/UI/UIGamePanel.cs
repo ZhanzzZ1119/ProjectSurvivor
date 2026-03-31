@@ -14,10 +14,17 @@ namespace ProjectSurvivor
             mData = uiData as UIGamePanelData ?? new UIGamePanelData();
             // please add init code here
 
-            Global.Exp.RegisterWithInitValue(seconds =>
+            Global.CurrentSeconds.RegisterWithInitValue(CurrentSeconds =>
             {
-                //Debug.Log($"[UI Listener] 更新后显示文本: {ExpText.text}");
-                ExpText.text = "经验值：" + exp;
+                if (Time.frameCount % 30 == 0)
+                {
+                    var currentSecondsInt = Mathf.FloorToInt(CurrentSeconds);
+                    var seconds = currentSecondsInt % 60;
+                    var minutes = CurrentSeconds / 60;
+                    TimeText.text = "时间：" + $"{minutes:00}:{seconds:00}";
+                }
+
+
             }
                ).UnRegisterWhenGameObjectDestroyed(gameObject);
 
@@ -44,10 +51,10 @@ namespace ProjectSurvivor
 
             Global.Exp.RegisterWithInitValue(exp =>
             {
-                if(exp >= 5)
-				{
-					Global.Exp.Value -= 5;
-                    Global.Level.Value++ ;
+                if (exp >= 5)
+                {
+                    Global.Exp.Value -= 5;
+                    Global.Level.Value++;
 
                 }
             }
@@ -62,6 +69,13 @@ namespace ProjectSurvivor
                 BtnUpgrade.Hide();
             }
             );
+
+            ActionKit.OnUpdate.Register(() =>
+            {
+                Global.CurrentSeconds.Value += Time.deltaTime;
+            }
+            ).UnRegisterWhenGameObjectDestroyed(gameObject);
+
         }
 
         protected override void OnOpen(IUIData uiData = null)
