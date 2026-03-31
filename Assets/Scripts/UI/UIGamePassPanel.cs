@@ -13,11 +13,13 @@ namespace ProjectSurvivor
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIGamePassPanelData ?? new UIGamePassPanelData();
+			Time.timeScale = 0;
             // please add init code here
             ActionKit.OnUpdate.Register(() =>
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+					Global.RestartData();
                     this.CloseSelf();
                     SceneManager.LoadScene("SampleScene");
                 }
@@ -39,6 +41,7 @@ namespace ProjectSurvivor
 		
 		protected override void OnClose()
 		{
-		}
+            Time.timeScale = 1;
+        }
 	}
 }

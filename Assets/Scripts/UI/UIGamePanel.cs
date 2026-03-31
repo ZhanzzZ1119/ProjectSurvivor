@@ -73,6 +73,11 @@ namespace ProjectSurvivor
             ActionKit.OnUpdate.Register(() =>
             {
                 Global.CurrentSeconds.Value += Time.deltaTime;
+
+                if(Global.CurrentSeconds.Value >= 60)
+                {
+                    UIKit.OpenPanel<UIGamePassPanel>();
+                }
             }
             ).UnRegisterWhenGameObjectDestroyed(gameObject);
 
