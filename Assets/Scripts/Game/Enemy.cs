@@ -1,0 +1,35 @@
+using UnityEngine;
+using QFramework;
+
+namespace ProjectSurvivor
+{
+    public partial class Enemy : ViewController
+    {
+        public float HP = 3;
+        public float MovementSpeed = 2.0f;
+
+
+        private void Update()
+        {
+
+            if (Player.Default)
+            {
+                var direction = (Player.Default.transform.position - transform.position).normalized;
+
+                transform.Translate(direction * Time.deltaTime * MovementSpeed);
+
+            }
+
+            if(HP <= 0)
+            {
+                //UIKit.OpenPanel<UIGamePassPanel>();
+                
+                Global.Exp.Value++;
+                //Debug.Log($"[Death] HP <= 0, 当前经验值: {Global.Exp.Value}");
+                this.DestroyGameObjGracefully();
+                
+            }
+
+        }
+    }
+}
