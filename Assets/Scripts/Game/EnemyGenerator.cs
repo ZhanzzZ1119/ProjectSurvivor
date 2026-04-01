@@ -17,6 +17,8 @@ namespace ProjectSurvivor
         private float mCurrentGenerateSeconds = 0;//当前敌人生成时间
         private float mCurrentWaveSeconds = 0;//波次持续时间
 
+        public static BindableProperty<int> EnemyCount = new BindableProperty<int>();
+
         [SerializeField]
         public List<EnemyWave> EnemyWaves = new List<EnemyWave>();
 
@@ -27,6 +29,9 @@ namespace ProjectSurvivor
         public int WaveCount = 0;
 
         public bool LastWave => WaveCount == EnemyWaves.Count;
+        public EnemyWave CurrentWave => mCurrentWave;
+
+
 
         private void Start()
         {

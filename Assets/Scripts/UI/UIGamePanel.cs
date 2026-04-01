@@ -14,6 +14,12 @@ namespace ProjectSurvivor
             mData = uiData as UIGamePanelData ?? new UIGamePanelData();
             // please add init code here
 
+            EnemyGenerator.EnemyCount.RegisterWithInitValue(enemyCount =>
+            {
+                EnemyCountText.text = "µÐÈËÊýÁ¿£º" + enemyCount;
+            }
+               ).UnRegisterWhenGameObjectDestroyed(gameObject);
+
             Global.CurrentSeconds.RegisterWithInitValue(CurrentSeconds =>
             {
                 if (Time.frameCount % 30 == 0)
@@ -76,9 +82,9 @@ namespace ProjectSurvivor
             {
                 Global.CurrentSeconds.Value += Time.deltaTime;
 
-                if(Global.CurrentSeconds.Value >= 45
-                     && enemyGenerator.LastWave
-                     && !FindObjectOfType<Enemy>(false))
+            if (enemyGenerator.LastWave
+                 && enemyGenerator.CurrentWave == null
+                     && EnemyGenerator.EnemyCount.Value == 0)
                 {
                     UIKit.OpenPanel<UIGamePassPanel>();
                 }

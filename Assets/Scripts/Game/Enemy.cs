@@ -8,6 +8,15 @@ namespace ProjectSurvivor
         public float HP = 3;
         public float MovementSpeed = 2.0f;
 
+        private void Start()
+        {
+            EnemyGenerator.EnemyCount.Value++;
+        }
+
+        private void OnDestroy()
+        {
+            EnemyGenerator.EnemyCount.Value--;
+        }
 
         private void Update()
         {

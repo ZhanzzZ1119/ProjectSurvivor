@@ -5,13 +5,15 @@ using QFramework;
 
 namespace ProjectSurvivor
 {
-	// Generate Id:6e041d5a-0597-4139-b2d3-534e6dd022a3
+	// Generate Id:33c564de-2de1-4d97-b849-c0be72d8cc1c
 	public partial class UIGamePanel
 	{
 		public const string Name = "UIGamePanel";
 		
 		[SerializeField]
 		public UnityEngine.UI.Text TimeText;
+		[SerializeField]
+		public UnityEngine.UI.Text EnemyCountText;
 		[SerializeField]
 		public UnityEngine.UI.Text LevelText;
 		[SerializeField]
@@ -24,6 +26,7 @@ namespace ProjectSurvivor
 		protected override void ClearUIComponents()
 		{
 			TimeText = null;
+			EnemyCountText = null;
 			LevelText = null;
 			ExpText = null;
 			BtnUpgrade = null;
