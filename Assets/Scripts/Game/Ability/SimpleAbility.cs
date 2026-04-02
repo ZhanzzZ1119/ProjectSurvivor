@@ -15,7 +15,7 @@ namespace ProjectSurvivor
         {
             mCurrentGenerateSeconds += Time.deltaTime;
 
-            if (mCurrentGenerateSeconds >= 1.5f)
+            if (mCurrentGenerateSeconds >= Global.SimpleAbilityDuration.Value)
             {
                 mCurrentGenerateSeconds = 0;
                 var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
@@ -25,19 +25,7 @@ namespace ProjectSurvivor
 
                     if (distance <= 5)
                     {
-                        enemy.HP -= Global.SimpleAbilityDamage.Value;
-                        if (enemy.HP > 0)
-                        {
-                            enemy.Sprite.color = Color.red;
-                            var enemyRefCache = enemy;
-
-                            ActionKit.Delay(0.3f, () =>
-                            {
-                                //enemyRefCache.HP--;
-                                enemyRefCache.Sprite.color = Color.white;
-                            }
-                            ).StartGlobal();
-                        }
+                        enemy.Hurt(Global.SimpleAbilityDamage.Value);
 
                     }
                 }

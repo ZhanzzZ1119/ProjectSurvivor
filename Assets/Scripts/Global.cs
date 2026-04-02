@@ -19,12 +19,15 @@ namespace ProjectSurvivor
 
         public static BindableProperty<float> SimpleAbilityDamage = new BindableProperty<float>(1);
 
+        public static BindableProperty<float> SimpleAbilityDuration = new BindableProperty<float>(1.5f);
+        
         public static void RestartData()
         {
             Exp.Value = 0;
             Level.Value = 1;
             CurrentSeconds.Value = 0;
             SimpleAbilityDamage.Value = 1;
+            SimpleAbilityDuration.Value = 1.5f;
             EnemyGenerator.EnemyCount.Value = 0;
         }
 

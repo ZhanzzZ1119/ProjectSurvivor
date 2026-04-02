@@ -1,5 +1,7 @@
 using UnityEngine;
 using QFramework;
+using System;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace ProjectSurvivor
 {
@@ -31,14 +33,31 @@ namespace ProjectSurvivor
 
             if(HP <= 0)
             {
-                //UIKit.OpenPanel<UIGamePassPanel>();
-                
                 Global.Exp.Value++;
                 //Debug.Log($"[Death] HP <= 0, 当前经验值: {Global.Exp.Value}");
                 this.DestroyGameObjGracefully();
                 
             }
 
+        }
+
+        //private bool mIgnoreHurt = false;
+        //无敌帧，暂时不加，我这里好像没有bug
+        internal void Hurt(float value)
+        {
+            //if (mIgnoreHurt) return;
+            HP -= Global.SimpleAbilityDamage.Value;
+            if (HP > 0)
+            {
+
+                this.Sprite.color = Color.red;
+
+                ActionKit.Delay(0.3f, () =>
+                {
+                    this.Sprite.color = Color.white;
+                }
+                ).Start(this);
+            }
         }
     }
 }

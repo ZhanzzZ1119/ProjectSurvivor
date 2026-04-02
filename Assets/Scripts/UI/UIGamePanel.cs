@@ -50,7 +50,7 @@ namespace ProjectSurvivor
             Global.Level.Register(lv =>
             {
                 Time.timeScale = 0;
-                BtnUpgrade.Show();
+                UpgradeRoot.Show();
             }
             ).UnRegisterWhenGameObjectDestroyed(gameObject);
 
@@ -66,13 +66,23 @@ namespace ProjectSurvivor
             }
             ).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-            BtnUpgrade.Hide();
+            //////////////////////////
+            //技能选项部分
+            //////////////////////////
+            UpgradeRoot.Hide();
 
-            BtnUpgrade.onClick.AddListener(() =>
+            BtnUpgrade.onClick.AddListener(() =>//攻击升级
             {
                 Time.timeScale = 1.0f;
                 Global.SimpleAbilityDamage.Value *= 1.5f;
-                BtnUpgrade.Hide();
+                UpgradeRoot.Hide();
+            }
+            );
+            BtnSimpleDurationUpgrade.onClick.AddListener(() =>//攻击间隔升级
+            {
+                Time.timeScale = 1.0f;
+                Global.SimpleAbilityDuration.Value *= 0.8f;
+                UpgradeRoot.Hide();
             }
             );
 
