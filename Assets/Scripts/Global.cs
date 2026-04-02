@@ -40,5 +40,23 @@ namespace ProjectSurvivor
         {
             return lv * 3 + 2;
         }
+
+        public static void GeneratePowerUp(GameObject gameObject)
+        {
+            //90%掉落经验值
+
+            var random = Random.Range(0, 100.0f);
+
+            if(random <= 90)
+            {
+                //掉落经验值
+
+                PowerUpManager.Default.Exp.Instantiate()
+                    .Position(gameObject.Position())
+                    .Show();
+
+            }
+        }
+
     }
 }
