@@ -36,8 +36,9 @@ namespace ProjectSurvivor
 
             Global.Exp.RegisterWithInitValue(exp =>
             {
-                //Debug.Log($"[UI Listener] 更新后显示文本: {ExpText.text}");
-                ExpText.text = "经验值：" + exp;
+
+                ExpText.text = "经验值：(" + exp +  "/"  +  Global.ExpToNextLevel() + ")";
+                
             }
                ).UnRegisterWhenGameObjectDestroyed(gameObject);
 
@@ -57,11 +58,13 @@ namespace ProjectSurvivor
 
             Global.Exp.RegisterWithInitValue(exp =>
             {
-                if (exp >= 5)
+                if (exp >= Global.ExpToNextLevel())
                 {
-                    Global.Exp.Value -= 5;
-                    Global.Level.Value++;
 
+                    Global.Level.Value++;
+                    Global.Exp.Value -= Global.ExpToNextLevel(Global.Level.Value - 1);
+                    //前面lv++了，要用前一个等级，这里重载了计算函数
+                    //如果把++放在后面，Exp更新的时候所需经验值会滞后，我暂时不知道怎么漂亮的解决
                 }
             }
             ).UnRegisterWhenGameObjectDestroyed(gameObject);

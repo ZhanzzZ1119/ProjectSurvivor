@@ -31,5 +31,14 @@ namespace ProjectSurvivor
             EnemyGenerator.EnemyCount.Value = 0;
         }
 
+
+        public static int ExpToNextLevel()
+        {
+            return ExpToNextLevel(Level.Value);
+        }
+        public static int ExpToNextLevel(int lv)
+        {
+            return lv * 3 + 2;
+        }
     }
 }
