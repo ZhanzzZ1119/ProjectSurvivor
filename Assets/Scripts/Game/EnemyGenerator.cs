@@ -56,7 +56,7 @@ namespace ProjectSurvivor
                     mCurrentWave = mEnemyWavesQueue.Dequeue();
                     mCurrentGenerateSeconds = 0;
                     mCurrentWaveSeconds = 0;
-                    Debug.Log($" 当前波次刷新间隔: {mCurrentWave.GenerateDuraton}");
+                    //Debug.Log($" 当前波次刷新间隔: {mCurrentWave.GenerateDuraton}");
                 }
             }
 

@@ -33,9 +33,11 @@ namespace ProjectSurvivor
 
             if(HP <= 0)
             {
-                Global.Exp.Value++;
+                
                 //Debug.Log($"[Death] HP <= 0, 当前经验值: {Global.Exp.Value}");
                 this.DestroyGameObjGracefully();
+
+                // TODO: 经验值掉落 
                 
             }
 
