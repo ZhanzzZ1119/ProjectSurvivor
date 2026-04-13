@@ -13,8 +13,8 @@ namespace ProjectSurvivor
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIGameOverPanelData ?? new UIGameOverPanelData();
-			// please add init code here
-			ActionKit.OnUpdate.Register(() =>
+            Time.timeScale = 0;
+            ActionKit.OnUpdate.Register(() =>
 			{
 				if (Input.GetKeyDown(KeyCode.Space))
 				{
