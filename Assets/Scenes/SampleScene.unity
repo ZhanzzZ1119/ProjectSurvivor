@@ -438,6 +438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 548320373}
+  - component: {fileID: 548320374}
   m_Layer: 0
   m_Name: PowerUpManager
   m_TagString: Untagged
@@ -461,6 +462,26 @@ Transform:
   - {fileID: 1256420445}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &548320374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548320372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6201b11439500d4cbe2b1ca75fc423d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: ProjectSurvivor
+  ScriptName: PowerUpManager
+  ScriptsFolder: Assets/Scripts/Game
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+  Exp: {fileID: 1256420449}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,8 +882,8 @@ GameObject:
   - component: {fileID: 1256420445}
   - component: {fileID: 1256420444}
   - component: {fileID: 1256420443}
-  - component: {fileID: 1256420442}
-  - component: {fileID: 1256420446}
+  - component: {fileID: 1256420449}
+  - component: {fileID: 1256420450}
   m_Layer: 0
   m_Name: Exp
   m_TagString: Untagged
@@ -870,25 +891,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1256420442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1256420441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a98fd81666c537a43905be2c71d6239e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Namespace: ProjectSurvivor
-  ScriptName: Exp
-  ScriptsFolder: Assets/Scripts/Game
-  GeneratePrefab: 0
-  PrefabFolder: Assets/Art/Prefab
-  ArchitectureFullTypeName: 
-  ViewControllerFullTypeName: 
 --- !u!58 &1256420443
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -991,7 +993,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 548320373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1256420446
+--- !u!114 &1256420449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256420441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98fd81666c537a43905be2c71d6239e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: ProjectSurvivor
+  ScriptName: Exp
+  ScriptsFolder: Assets/Scripts/Game
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+--- !u!114 &1256420450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
