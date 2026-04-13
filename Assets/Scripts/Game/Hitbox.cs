@@ -10,7 +10,7 @@ namespace ProjectSurvivor
 
 		void Start()
 		{
-			if (Owner)
+			if (!Owner)
 			{
 				Owner = transform.parent.gameObject;
 			}

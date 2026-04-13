@@ -10,6 +10,7 @@ namespace ProjectSurvivor
 
         private void Awake()
         {
+            Debug.Log($"[PowerUpManager] Awake at frame {Time.frameCount}");
             Default = this;
         }
 
